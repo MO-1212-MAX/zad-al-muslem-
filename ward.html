@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>المسبحة</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<header class="header">
+    <a href="index.html" class="back-btn">⬅ رجوع</a>
+    <h1>المسبحة</h1>
+</header>
+
+<div class="counter-card">
+    <h2>العداد الرقمي</h2>
+    <div id="counter" class="counter-display">0</div>
+    <button class="counter-btn" onclick="increment()">سبّح</button>
+    <br>
+    <button class="reset-btn" onclick="reset()">إعادة ضبط</button>
+</div>
+
+<script>
+    let count = parseInt(localStorage.getItem('tasbeehCount')) || 0;
+    const counterEl = document.getElementById('counter');
+    counterEl.innerText = count;
+
+    function increment() {
+        if (count < 100000) {
+            count++;
+            counterEl.innerText = count;
+            localStorage.setItem('tasbeehCount', count);
+        }
+    }
+
+    function reset() {
+        if (confirm("هل تريد إعادة العداد إلى الصفر؟")) {
+            count = 0;
+            counterEl.innerText = count;
+            localStorage.setItem('tasbeehCount', count);
+        }
+    }
+</script>
+
+</body>
+</html>
