@@ -3,128 +3,226 @@
     -webkit-tap-highlight-color: transparent;
 }
 
+html,
 body {
     margin: 0;
     padding: 0;
+    min-height: 100%;
     font-family: 'Cairo', sans-serif;
-    background-color: #f4f6f8;
-    color: #333333;
-    user-select: none;
-    -webkit-user-select: none;
+    background: #f4f6f8;
+    color: #333;
 }
 
+/* =========================
+   الهيدر
+   ========================= */
+
 .header {
-    background-color: #0f5257;
-    color: #ffffff;
+    background: #0f5c60;
+    color: white;
     text-align: center;
-    padding: 15px 20px;
+    padding: 20px;
     position: relative;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    z-index: 10;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.18);
+    border-radius: 0 0 4px 4px;
 }
 
 .header h1 {
     margin: 0;
-    font-size: 1.4rem;
+    font-size: 1.6rem;
     font-weight: 700;
 }
+
+/* =========================
+   زر الرجوع
+   ========================= */
 
 .back-btn {
     position: absolute;
     right: 15px;
     top: 50%;
     transform: translateY(-50%);
-    color: #ffffff;
+
+    background: #0f5c60;
+    color: white;
+
     text-decoration: none;
-    font-size: 0.95rem;
+    padding: 9px 14px;
+    border-radius: 9px;
+
+    font-size: 1rem;
     font-weight: bold;
-    background: rgba(255, 255, 255, 0.15);
-    padding: 6px 12px;
-    border-radius: 8px;
+    font-family: 'Cairo', sans-serif;
+
+    z-index: 20;
 }
 
+/* =========================
+   قائمة الأقسام الرئيسية
+   ========================= */
+
 .menu-container {
-    padding: 20px;
-    max-width: 500px;
-    margin: 0 auto;
+    width: 100%;
+    max-width: 550px;
+
+    margin: 22px auto 0;
+    padding: 0 15px;
+
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 14px;
+
+    position: relative;
+    z-index: 5;
 }
+
+/* =========================
+   أزرار الأقسام
+   ========================= */
 
 .menu-item {
     display: block;
-    background-color: #ffffff;
-    color: #0f5257;
+
+    width: 100%;
+
+    background: #17656a;
+    color: white;
+
     text-decoration: none;
-    padding: 16px;
     text-align: center;
-    border-radius: 12px;
-    font-size: 1.15rem;
+
+    padding: 22px 15px;
+
+    border-radius: 14px;
+
+    font-size: 1.25rem;
     font-weight: 700;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-    border: 1px solid #e2e8f0;
+
+    border: 1px solid rgba(255, 255, 255, 0.35);
+
+    box-shadow:
+        0 5px 10px rgba(0, 0, 0, 0.20);
+
+    transition: transform 0.15s ease,
+                box-shadow 0.15s ease;
 }
+
+/* عند الضغط */
+
+.menu-item:active {
+    transform: scale(0.98);
+    box-shadow: 0 3px 7px rgba(0, 0, 0, 0.20);
+}
+
+/* =========================
+   الزر المميز
+   ========================= */
 
 .menu-item.highlight {
-    background-color: #0f5257;
-    color: #ffffff;
+    background: #17656a;
+    color: white;
 }
+
+/* =========================
+   صفحات القراءة
+   ========================= */
 
 .reader {
-    padding: 20px 15px;
-    max-width: 650px;
+    width: 100%;
+    max-width: 800px;
+
     margin: 0 auto;
+    padding: 20px 15px;
+
+    position: relative;
+    z-index: 5;
 }
 
+/* =========================
+   إطار النص
+   ========================= */
+
 .frame {
-    background-color: #ffffff;
+    background: white;
+
     padding: 25px 20px;
+
     border-radius: 16px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+
     border: 1px solid #e2e8f0;
+
+    box-shadow:
+        0 4px 12px rgba(0, 0, 0, 0.08);
+
     line-height: 2.1;
+
     font-size: 1.25rem;
+
     text-align: justify;
 }
 
 .frame h2 {
     text-align: center;
-    color: #0f5257;
+
+    color: #0f5c60;
+
     margin-top: 0;
     margin-bottom: 20px;
 }
 
-/* تنسيقات المسبحة الرقمية */
+/* =========================
+   المسبحة الرقمية
+   ========================= */
 
 .counter-card {
-    background: #ffffff;
+    background: white;
+
     margin: 30px auto;
     padding: 30px 20px;
+
     border-radius: 20px;
+
     max-width: 350px;
+
     text-align: center;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+
     border: 1px solid #e2e8f0;
+
+    box-shadow:
+        0 4px 15px rgba(0, 0, 0, 0.08);
 }
 
 .counter-display {
     font-size: 3.5rem;
+
     font-weight: 700;
-    color: #0f5257;
+
+    color: #0f5c60;
+
     margin: 20px 0;
 }
 
 .counter-btn {
     width: 120px;
     height: 120px;
+
     border-radius: 50%;
+
     border: none;
-    background-color: #0f5257;
-    color: #ffffff;
+
+    background: #0f5c60;
+
+    color: white;
+
     font-size: 1.5rem;
     font-weight: bold;
+
     cursor: pointer;
-    box-shadow: 0 6px 15px rgba(15, 82, 87, 0.4);
+
+    box-shadow:
+        0 6px 15px rgba(15, 82, 87, 0.35);
+
     font-family: 'Cairo', sans-serif;
 }
 
@@ -132,13 +230,56 @@ body {
     transform: scale(0.94);
 }
 
+/* =========================
+   زر إعادة التعيين
+   ========================= */
+
 .reset-btn {
     margin-top: 25px;
+
     background: transparent;
+
     border: 1px solid #e53e3e;
+
     color: #e53e3e;
+
     padding: 8px 20px;
+
     border-radius: 8px;
+
     font-weight: bold;
+
     font-family: 'Cairo', sans-serif;
+
+    cursor: pointer;
+}
+
+/* =========================
+   الجوال
+   ========================= */
+
+@media (max-width: 600px) {
+
+    .header {
+        padding: 17px 15px;
+    }
+
+    .header h1 {
+        font-size: 1.35rem;
+    }
+
+    .menu-container {
+        margin-top: 20px;
+        padding: 0 15px;
+    }
+
+    .menu-item {
+        padding: 19px 12px;
+        font-size: 1.15rem;
+    }
+
+    .frame {
+        padding: 20px 16px;
+        font-size: 1.15rem;
+    }
 }
