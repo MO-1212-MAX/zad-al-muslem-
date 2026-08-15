@@ -3,14 +3,30 @@
     -webkit-tap-highlight-color: transparent;
 }
 
-html,
-body {
+html {
     margin: 0;
     padding: 0;
     min-height: 100%;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+
     font-family: 'Cairo', sans-serif;
-    background: #f4f6f8;
+
     color: #333;
+
+    /* الصورة تغطي الشاشة كاملة */
+    background-image: url("icong.jpg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    background-attachment: fixed;
+
+    /* مهم: لا يوجد لون/طبقة خلف الأزرار */
+    background-color: transparent;
 }
 
 /* =========================
@@ -18,18 +34,27 @@ body {
    ========================= */
 
 .header {
+    width: 100%;
+
     background: #0f5c60;
     color: white;
+
     text-align: center;
+
     padding: 20px;
+
     position: relative;
-    z-index: 10;
-    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.18);
+    z-index: 100;
+
+    box-shadow:
+        0 3px 10px rgba(0, 0, 0, 0.30);
+
     border-radius: 0 0 4px 4px;
 }
 
 .header h1 {
     margin: 0;
+
     font-size: 1.6rem;
     font-weight: 700;
 }
@@ -40,45 +65,62 @@ body {
 
 .back-btn {
     position: absolute;
+
     right: 15px;
     top: 50%;
+
     transform: translateY(-50%);
 
     background: #0f5c60;
     color: white;
 
     text-decoration: none;
+
     padding: 9px 14px;
+
     border-radius: 9px;
 
     font-size: 1rem;
     font-weight: bold;
+
     font-family: 'Cairo', sans-serif;
 
-    z-index: 20;
+    z-index: 200;
+
+    box-shadow:
+        0 3px 8px rgba(0, 0, 0, 0.25);
+}
+
+.back-btn:active {
+    transform: translateY(-50%) scale(0.96);
 }
 
 /* =========================
-   قائمة الأقسام الرئيسية
+   القائمة الرئيسية
    ========================= */
 
 .menu-container {
     width: 100%;
-    max-width: 550px;
+    max-width: 680px;
 
-    margin: 22px auto 0;
-    padding: 0 15px;
+    margin: 30px auto 0;
+
+    padding: 0 15px 30px;
 
     display: flex;
     flex-direction: column;
-    gap: 14px;
+
+    gap: 18px;
 
     position: relative;
-    z-index: 5;
+    z-index: 50;
+
+    /* مهم جداً */
+    background: transparent;
 }
 
 /* =========================
-   أزرار الأقسام
+   أزرار القائمة
    ========================= */
 
 .menu-item {
@@ -86,42 +128,47 @@ body {
 
     width: 100%;
 
-    background: #17656a;
+    /* لون صلب 100% */
+    background: #176b70;
+
     color: white;
 
     text-decoration: none;
     text-align: center;
 
-    padding: 22px 15px;
+    padding: 25px 15px;
 
-    border-radius: 14px;
+    border-radius: 15px;
 
     font-size: 1.25rem;
     font-weight: 700;
 
-    border: 1px solid rgba(255, 255, 255, 0.35);
+    border: 2px solid rgba(0, 0, 0, 0.18);
 
     box-shadow:
-        0 5px 10px rgba(0, 0, 0, 0.20);
+        0 6px 12px rgba(0, 0, 0, 0.30);
 
-    transition: transform 0.15s ease,
-                box-shadow 0.15s ease;
+    position: relative;
+    z-index: 60;
+
+    transition:
+        transform 0.15s ease,
+        box-shadow 0.15s ease;
+}
+
+/* لا شفافية */
+.menu-item.highlight {
+    background: #176b70;
+    color: white;
 }
 
 /* عند الضغط */
 
 .menu-item:active {
     transform: scale(0.98);
-    box-shadow: 0 3px 7px rgba(0, 0, 0, 0.20);
-}
 
-/* =========================
-   الزر المميز
-   ========================= */
-
-.menu-item.highlight {
-    background: #17656a;
-    color: white;
+    box-shadow:
+        0 3px 7px rgba(0, 0, 0, 0.30);
 }
 
 /* =========================
@@ -130,13 +177,16 @@ body {
 
 .reader {
     width: 100%;
-    max-width: 800px;
+    max-width: 850px;
 
     margin: 0 auto;
-    padding: 20px 15px;
+
+    padding: 25px 15px 40px;
 
     position: relative;
-    z-index: 5;
+    z-index: 50;
+
+    background: transparent;
 }
 
 /* =========================
@@ -144,22 +194,27 @@ body {
    ========================= */
 
 .frame {
-    background: white;
+    width: 100%;
+
+    background: #ffffff;
 
     padding: 25px 20px;
 
     border-radius: 16px;
 
-    border: 1px solid #e2e8f0;
+    border: 2px solid #e2e8f0;
 
     box-shadow:
-        0 4px 12px rgba(0, 0, 0, 0.08);
+        0 6px 18px rgba(0, 0, 0, 0.25);
 
     line-height: 2.1;
 
     font-size: 1.25rem;
 
     text-align: justify;
+
+    position: relative;
+    z-index: 60;
 }
 
 .frame h2 {
@@ -176,9 +231,10 @@ body {
    ========================= */
 
 .counter-card {
-    background: white;
+    background: #ffffff;
 
     margin: 30px auto;
+
     padding: 30px 20px;
 
     border-radius: 20px;
@@ -190,7 +246,10 @@ body {
     border: 1px solid #e2e8f0;
 
     box-shadow:
-        0 4px 15px rgba(0, 0, 0, 0.08);
+        0 5px 15px rgba(0, 0, 0, 0.20);
+
+    position: relative;
+    z-index: 60;
 }
 
 .counter-display {
@@ -237,7 +296,7 @@ body {
 .reset-btn {
     margin-top: 25px;
 
-    background: transparent;
+    background: #ffffff;
 
     border: 1px solid #e53e3e;
 
@@ -260,6 +319,15 @@ body {
 
 @media (max-width: 600px) {
 
+    html,
+    body {
+        min-height: 100vh;
+
+        background-size: cover;
+        background-position: center center;
+        background-attachment: fixed;
+    }
+
     .header {
         padding: 17px 15px;
     }
@@ -269,17 +337,36 @@ body {
     }
 
     .menu-container {
+        max-width: 100%;
+
         margin-top: 20px;
-        padding: 0 15px;
+
+        padding: 0 15px 30px;
+
+        gap: 14px;
+
+        background: transparent;
     }
 
     .menu-item {
-        padding: 19px 12px;
+        padding: 20px 12px;
+
         font-size: 1.15rem;
+
+        border-radius: 14px;
+    }
+
+    .reader {
+        padding: 18px 12px 30px;
+
+        background: transparent;
     }
 
     .frame {
         padding: 20px 16px;
+
         font-size: 1.15rem;
+
+        border-radius: 15px;
     }
 }
